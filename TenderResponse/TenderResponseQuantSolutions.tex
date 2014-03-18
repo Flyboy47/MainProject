@@ -63,9 +63,66 @@
 		
 			\subsubsection{Solution Overview}
 			
-			
+			Our solution is to employ OpenCV libraries to do most of the facial detection and recognition tasks. These include, but are not limited to:
+				
+				\begin{itemize}
+				
+					\item Detecting a face in a video frame
+					
+					\item Cropping an image to remove superfluous pixels
+					
+					\item Pre-processing the cropped image
+					
+					\item Creating Eigenfaces for both the dataset of known faces, as well as for comparing input faces to known faces
+				
+				\end{itemize}
+				
+			Our solution includes an interface that allows an authorised member of the community watch to attempt to identify an individual by providing 
+			an image of that individual, which will then be compared to the set of known faces in the database. We also privide a management component,
+			from where the system can be managed and monitored.
 			
 			\subsubsection{Component Overview}
+			
+				\begin{itemize}
+				
+					\item Facial Detection and Tracking (OpenCV, c++)
+						\begin{itemize}
+							\item Monitor video stream
+							\item Identify faces in video frames
+							\item Follow faces as they move within a stream
+						\end{itemize}
+					\item Image Pre-Processor (OpenCV, c++)
+						\begin{itemize}
+							\item Crop face image so only facial features remain
+							\item Align a face to an optimal position
+							\item Prepare image (Greyscale, Equalisation etc.)
+						\end{itemize}
+					\item Facial Feature Extractor (OpenCV, c++)
+						\begin{itemize}
+							\item Compose Eigenfaces
+						\end{itemize}
+					\item Facial Feature Matcher (OpenCV, c++)
+						\begin{itemize}
+							\item Compare Eigenfaces to known faces
+							\item If the comparison has a high confidence, a match was found,
+							\item Else, a new individual may have been classified
+						\end{itemize}
+					\item Image Data Manager (OpenCV, c++)
+						\begin{itemize}
+							\item Manages the image database of known/classified faces
+						\end{itemize}
+					\item System Administration (Either web based or Java application)
+						\begin{itemize}
+							\item Provide functionality to effectively and efficiently manage users of the system
+							\item Provide functionality to identify and classify faces that are in the known faces database
+							\item Provide a monitoring and reporting facility
+						\end{itemize}
+					\item User Interfaces (Web and Android)
+						\begin{itemize}
+							\item Provides the interface for users of the system to upload and compare images of persons of interest
+						\end{itemize}
+					
+				\end{itemize}
 			
 	\section{Implementation Plan}
 	
