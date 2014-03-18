@@ -1,0 +1,4 @@
+The order of Tender priority is as follows:
+1. Tender 17 - Quant Solutions Community Project for Facial Recognition
+2. Tender 5 - CSIR Mobile Augmented Reality Number Plate Recognition
+3. Tender 23 - Truple Voltaire
